@@ -14,9 +14,12 @@ const server = http.createServer((req, res) => {
       res.end('laod fail');
     }
     getMime(extname, function (mime) {
+      // if (mime) {
+      console.log(mime);
       res.writeHeader(200, {
         'Content-Type': mime
       });
+      // }
     })
     // 读取文件
     res.end(data);
@@ -29,6 +32,8 @@ function getMime(extname, callback) {
       res.end('mime文件读取错误');
       return;
     }
-    callback(data[extname]);
+    // 这里需要转化一下
+    let obj = JSON.parse(data.toString('UTF-8'));
+    callback(obj['' + extname + '']);
   })
 }
