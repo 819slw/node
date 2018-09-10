@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="shortcut icon" type="image/png" href="../1532964262(1).jpg">
 </head>
+
 <body>
-<form action="http://localhost:8080" method="get">
-    <label for="user">
-        用户名:<input type="text" name="user" id="user">
-    </label>
-    <label for="user">
-        密码:<input type="password" name="pass" id="pass">
-    </label>
-    <label for="user">
-        <input type="submit" value="提交数据">
-    </label>
-</form>    
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="user">
+            用户名:<input type="text" name="user" id="user">
+        </label>
+        <label for="user">
+            密码:<input type="password" name="pass" id="pass">
+        </label>
+        <label for="user">
+            上传文件:<input type="file" name="file" id="file">
+        </label>
+        <label for="user">
+            <input type="submit" value="提交数据">
+        </label>
+    </form>
 </body>
+
 </html>
