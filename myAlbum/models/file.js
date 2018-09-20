@@ -30,24 +30,28 @@ exports.showAllAlbum = function (callback) {
 }
 
 exports.showImg = function (albumName, callback) {
-  fs.readdir('./uploads' + albumName, (err, files) => {
+  fs.readdir('./uploads/' + albumName, (err, files) => {
     if (err) {
       callback('文件读取失败', null);
       return;
     }
     var arr = [];
-    (function iterator(i) {
-      if (i <= files.length) {
+    (function iterator1(i) {
+      if (i >= files.length) {
         callback(null, arr);
         return;
       }
-      fs.stat('./uplaods' + albumName + '/' + files[i], (err, stats) => {
+      fs.stat('./uploads/' + albumName + '/' + files[i], (err, stats) => {
         if (err) {
           callback('获取图片失败', null);
           return;
         }
-        // 判断是否为文件夹
-
+        // 判断是否为文件
+        if (stats.isFile()) {
+          let url = '/uploads/' + albumName + '/' + files[i];
+          arr.push(url);
+        }
+        iterator1(++i);
       })
     })(0)
   })

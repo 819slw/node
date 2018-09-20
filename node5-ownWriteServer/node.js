@@ -14,12 +14,12 @@ const server = http.createServer((req, res) => {
       res.end('laod fail');
     }
     getMime(extname, function (mime) {
-      // if (mime) {
-      console.log(mime);
-      res.writeHeader(200, {
-        'Content-Type': mime
-      });
-      // }
+      if (mime) {
+        console.log(mime);
+        res.writeHeader(200, {
+          'Content-Type': mime
+        });
+      }
     })
     // 读取文件
     res.end(data);

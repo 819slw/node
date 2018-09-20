@@ -10,12 +10,16 @@ exports.shouwIndex = function (req, res) {
 
 exports.showImgPage = function (req, res) {
   // 拿到当前相册的名称 
-  var albumName = req.params.albumName;
-  console.log(albumName);
-  file.showImg(albumName, (err, albumImg) => {
-    res.render('showImg', {
-      albumImg,
-      albumName
-    });
-  })
+  var albumName = req.params.showImg;
+  if (albumName != 'favicon.ico') {
+    file.showImg(albumName, (err, albumImg) => {
+      if (err) {
+        return;
+      }
+      res.render('showImg', {
+        albumImg,
+        albumName
+      });
+    })
+  }
 }

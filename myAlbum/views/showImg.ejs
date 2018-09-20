@@ -26,16 +26,11 @@
     </div>
   </nav>
   <div class="row">
-    <% for(var i=0; i<albums.length; i++) {%>
+    <% for(var i=0; i<albumImg.length; i++){%>
     <div class="col-xs-6 col-md-3">
-      <a href="#" class="thumbnail">
-        <img src="/images/file1.jpg" alt="...">
+      <a href="/" class="thumbnail">
+        <img src="<%=albumImg[i]%>" alt="...">
       </a>
-
-      <p>
-        <%=albums[i]%>
-      </p>
-
     </div>
     <%}%>
   </div>
