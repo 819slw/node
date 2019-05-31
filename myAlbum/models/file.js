@@ -48,7 +48,7 @@ exports.showImg = function (albumName, callback) {
         }
         // 判断是否为文件
         if (stats.isFile()) {
-          let url = '/uploads/' + albumName + '/' + files[i];
+          let url = '/' + albumName + '/' + files[i];
           arr.push(url);
         }
         iterator1(++i);
